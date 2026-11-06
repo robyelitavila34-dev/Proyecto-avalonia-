@@ -73,3 +73,4 @@ C:\Users\robye\Downloads\SaludoAvalonia\MiPresentacion\MiPresentacion\obj\Debug\
 C:\Users\robye\Downloads\SaludoAvalonia\MiPresentacion\MiPresentacion\obj\Debug\net8.0\MiPresentacion.pdb
 C:\Users\robye\Downloads\SaludoAvalonia\MiPresentacion\MiPresentacion\obj\Debug\net8.0\MiPresentacion.genruntimeconfig.cache
 C:\Users\robye\Downloads\SaludoAvalonia\MiPresentacion\MiPresentacion\obj\Debug\net8.0\ref\MiPresentacion.dll
+C:\Users\robye\Downloads\SaludoAvalonia\MiPresentacion\MiPresentacion\obj\Debug\net8.0\MiPresentacion.sourcelink.json
