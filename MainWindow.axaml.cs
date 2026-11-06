@@ -13,40 +13,57 @@ public partial class MainWindow : Window
         InitializeComponent();
     }
 
+    // BOTON PRESENTARME
     private void Presentarme_Click(object? sender, RoutedEventArgs e)
     {
         saludoAlternativo = false;
         MostrarPresentacion(false);
     }
 
+    // METODO PARA VALIDAR Y MOSTRAR LOS DATOS
     private bool MostrarPresentacion(bool alternativo)
     {
         string nombre = NombreTextBox.Text?.Trim() ?? "";
         string apellido = ApellidoTextBox.Text?.Trim() ?? "";
         string edadTexto = EdadTextBox.Text?.Trim() ?? "";
 
+        // VALIDAR NOMBRE
         if (string.IsNullOrWhiteSpace(nombre))
         {
-            ResultadoTextBlock.Text = "Debes ingresar tu nombre.";
+            ResultadoTextBlock.Text =
+                "Advertencia: debes ingresar tu nombre.";
             NombreTextBox.Focus();
             return false;
         }
 
+        // VALIDAR APELLIDO
         if (string.IsNullOrWhiteSpace(apellido))
         {
-            ResultadoTextBlock.Text = "Debes ingresar tu apellido.";
+            ResultadoTextBlock.Text =
+                "Advertencia: debes ingresar tu apellido.";
             ApellidoTextBox.Focus();
             return false;
         }
 
-        if (!int.TryParse(edadTexto, out int edad) || edad <= 0)
+        // VALIDAR QUE LA EDAD SEA UN NUMERO ENTERO
+        if (!int.TryParse(edadTexto, out int edad))
         {
             ResultadoTextBlock.Text =
-                "Debes ingresar una edad entera mayor que cero.";
+                "Advertencia: debes ingresar una edad numerica.";
             EdadTextBox.Focus();
             return false;
         }
 
+        // VALIDAR QUE LA EDAD SEA POSITIVA
+        if (edad <= 0)
+        {
+            ResultadoTextBlock.Text =
+                "Advertencia: la edad debe ser mayor que cero.";
+            EdadTextBox.Focus();
+            return false;
+        }
+
+        // MOSTRAR PRESENTACION
         if (!alternativo)
         {
             ResultadoTextBlock.Text =
@@ -65,6 +82,7 @@ public partial class MainWindow : Window
         return true;
     }
 
+    // BOTON LIMPIAR
     private void Limpiar_Click(object? sender, RoutedEventArgs e)
     {
         NombreTextBox.Text = "";
@@ -79,6 +97,7 @@ public partial class MainWindow : Window
         NombreTextBox.Focus();
     }
 
+    // BOTON CAMBIAR SALUDO
     private void CambiarSaludo_Click(object? sender, RoutedEventArgs e)
     {
         bool siguienteSaludo = !saludoAlternativo;
